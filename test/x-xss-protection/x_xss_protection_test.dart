@@ -1,5 +1,5 @@
 import 'package:shelf/shelf.dart';
-import 'package:shelf_helmet/src/x-xss-protection/x_xss_protection.dart';
+import 'package:shelf_helmet/shelf_helmet.dart';
 import 'package:test/test.dart';
 
 import '../test_utils.dart';
