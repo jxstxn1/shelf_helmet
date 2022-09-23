@@ -8,7 +8,7 @@ void main() {
   final handler = const Pipeline().addMiddleware(xXssProtection()).addHandler(
         (req) => syncHandler(
           req,
-          headers: {'Content-Type': 'application/json'},
+          headers: {'content-type': 'application/json'},
         ),
       );
 
@@ -20,7 +20,7 @@ void main() {
     );
 
     expect(response.statusCode, 200);
-    expect(response.headers, containsPair('X-XSS-Protection', '0'));
-    expect(response.headers, containsPair('Content-Type', 'application/json'));
+    expect(response.headers, containsPair('x-xss-protection', '0'));
+    expect(response.headers, containsPair('content-type', 'application/json'));
   });
 }

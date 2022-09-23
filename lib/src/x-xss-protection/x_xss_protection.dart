@@ -5,7 +5,7 @@ Middleware xXssProtection() {
     return (request) async {
       final response = await innerHandler(request);
       return response.change(
-        headers: {'X-XSS-Protection': '0', ...response.headersAll},
+        headers: {'x-xxs-protection': '0', ...response.headersAll},
       );
     };
   };

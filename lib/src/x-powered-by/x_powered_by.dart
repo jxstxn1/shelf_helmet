@@ -5,7 +5,7 @@ Middleware xPoweredBy() {
     return (request) async {
       final response = await innerHandler(request);
       final headers = {...response.headersAll}..update(
-          'X-Powered-By',
+          'x-powered-by',
           (_) => [],
           ifAbsent: () => [],
         );

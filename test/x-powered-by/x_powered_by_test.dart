@@ -38,6 +38,6 @@ void main() {
     );
 
     expect(response.statusCode, 200);
-    expect(response.headers['X-Powered-By'], null);
+    expect(response.headers['x-powered-by'], null);
   });
 }
