@@ -9,6 +9,5 @@ This middleware sets the `X-XSS-Protection` header to `0`.
 ```dart
 import 'package:shelf_helmet/x_xss_protection.dart'
 
-var handler =
-  const Pipeline().addMiddleware(xXssProtection()).addMiddleware(logRequests()).addHandler(_echoRequest);
+.addMiddleware(xXssProtection())
 ```

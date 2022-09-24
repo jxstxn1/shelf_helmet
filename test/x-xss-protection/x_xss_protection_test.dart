@@ -5,14 +5,14 @@ import 'package:test/test.dart';
 import '../utils/test_utils.dart';
 
 void main() {
-  final handler = const Pipeline().addMiddleware(xXssProtection()).addHandler(
-        (req) => syncHandler(
-          req,
-          headers: {'content-type': 'application/json'},
-        ),
-      );
-
   test("Should add the 'X-XSS-Protection' Header", () async {
+    final handler = const Pipeline().addMiddleware(xXssProtection()).addHandler(
+          (req) => syncHandler(
+            req,
+            headers: {'content-type': 'application/json'},
+          ),
+        );
+
     final response = await makeRequest(
       handler,
       uri: clientUri,
