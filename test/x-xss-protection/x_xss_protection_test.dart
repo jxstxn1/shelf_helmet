@@ -2,7 +2,7 @@ import 'package:shelf/shelf.dart';
 import 'package:shelf_helmet/shelf_helmet.dart';
 import 'package:test/test.dart';
 
-import '../test_utils.dart';
+import '../utils/test_utils.dart';
 
 void main() {
   final handler = const Pipeline().addMiddleware(xXssProtection()).addHandler(
