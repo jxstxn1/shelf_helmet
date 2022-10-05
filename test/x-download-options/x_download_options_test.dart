@@ -5,7 +5,7 @@ import 'package:test/test.dart';
 import '../utils/test_utils.dart';
 
 void main() {
-  test("Should add the 'X-DownloadOptions:noopen' Header", () async {
+  test("Should add the 'X-Download-Options:noopen' Header", () async {
     final handler = const Pipeline().addMiddleware(xDownloadOptions()).addHandler(
           (req) => syncHandler(
             req,
