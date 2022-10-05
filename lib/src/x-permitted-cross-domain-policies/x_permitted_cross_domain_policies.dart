@@ -10,6 +10,12 @@ enum PermittedPolicies {
   const PermittedPolicies(this.policie);
 }
 
+/// The `X-Permitted-Cross-Domain-Policies` header tells some web
+/// clients (like Adobe Flash or Adobe Acrobat) your domain's
+/// policy for loading cross-domain content. See the description on
+/// [OWASP](https://owasp.org/www-project-secure-headers/) for more.
+///
+/// [permittedPolicies] the policy to set for the header.
 Middleware xPermittedCrossDomainPolies({PermittedPolicies permittedPolicie = PermittedPolicies.none}) {
   return (innerHandler) {
     return (request) async {

@@ -8,13 +8,14 @@ If your app does not need to be framed (and most don't) you can use `DENY`. If y
 
 Usage:
 
-```javascript
-const frameguard = require("frameguard");
+```dart
+import 'package:shelf_helmet/x_xss_protection.dart';
 
-// Don't allow me to be in ANY frames:
-app.use(frameguard({ action: "deny" }));
+// Sets X-Frame-Options: sameorigin
+.addMiddleware(xPermittedCrossDomainPolies());
 
-// Only let me be framed by people of the same origin:
-app.use(frameguard({ action: "sameorigin" }));
-app.use(frameguard()); // defaults to sameorigin
+
+// You can use any of the following values:
+.addMiddleware(xPermittedCrossDomainPolies(permittedPolicie: PermittedPolicies.deny));
+.addMiddleware(xPermittedCrossDomainPolies(permittedPolicie: PermittedPolicies.sameorigin));
 ```

@@ -1,5 +1,6 @@
 import 'package:shelf/shelf.dart';
 
+/// This middleware sets the `X-XSS-Protection` header to `0`.
 Middleware xXssProtection() {
   return (innerHandler) {
     return (request) async {
