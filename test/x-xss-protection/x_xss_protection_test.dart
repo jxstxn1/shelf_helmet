@@ -5,7 +5,7 @@ import 'package:test/test.dart';
 import '../utils/test_utils.dart';
 
 void main() {
-  test("Should add the 'X-XSS-Protection' Header", () async {
+  test("Should add the 'X-XSS-Protection:0' Header", () async {
     final handler = const Pipeline().addMiddleware(xXssProtection()).addHandler(
           (req) => syncHandler(
             req,
