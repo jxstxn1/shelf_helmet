@@ -11,7 +11,7 @@ This middleware prevents Chrome, Opera 13+, IE 8+ and [Firefox 50+](https://bugz
 ```dart
 import 'package:shelf_helmet/shelf_helmet.dart'
 
-.addMiddleware(xDownloadOptions())
+.addMiddleware(xContentTypeOptions())
 ```
 
 [MSDN has a good description](https://msdn.microsoft.com/en-us/library/gg622941%28v=vs.85%29.aspx) of how browsers behave when this header is sent.
