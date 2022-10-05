@@ -9,7 +9,7 @@ If your app does not need to be framed (and most don't) you can use `DENY`. If y
 Usage:
 
 ```dart
-import 'package:shelf_helmet/x_xss_protection.dart';
+import 'package:shelf_helmet/shelf_helmet.dart'
 
 // Sets X-Frame-Options: sameorigin
 .addMiddleware(xPermittedCrossDomainPolies());

@@ -5,7 +5,7 @@ The `X-Permitted-Cross-Domain-Policies` header tells some web clients (like Adob
 Usage:
 
 ```dart
-import 'package:shelf_helmet/x_xss_protection.dart';
+import 'package:shelf_helmet/shelf_helmet.dart'
 
 // Sets X-Permitted-Cross-Domain-Policies: none
 .addMiddleware(xPermittedCrossDomainPolies());

@@ -3,7 +3,7 @@
 This middleware sets the `X-Download-Options` header to `noopen` to prevent Internet Explorer users from executing downloads in your site's context.
 
 ```dart
-import 'package:shelf_helmet/x_xss_protection.dart'
+import 'package:shelf_helmet/shelf_helmet.dart'
 
 .addMiddleware(xDownloadOptions())
 ```

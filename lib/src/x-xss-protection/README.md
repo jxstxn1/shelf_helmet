@@ -7,7 +7,7 @@ Many browsers have chosen to remove it because of the unintended security issues
 This middleware sets the `X-XSS-Protection` header to `0`.
 
 ```dart
-import 'package:shelf_helmet/x_xss_protection.dart'
+import 'package:shelf_helmet/shelf_helmet.dart'
 
 .addMiddleware(xXssProtection())
 ```
