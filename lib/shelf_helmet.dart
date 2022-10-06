@@ -3,6 +3,7 @@
 /// More dartdocs go here.
 library shelf_helmet;
 
+export 'src/cross-origin-opener-policy/cross_origin_opener_policy.dart';
 export 'src/cross-origin-resource-policy/cross_origin_resource_policy.dart';
 export 'src/expect-ct/expect_ct.dart';
 export 'src/origin-agent-cluster/origin_agent_cluster.dart';
