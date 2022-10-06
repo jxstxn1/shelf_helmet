@@ -3,6 +3,7 @@
 /// More dartdocs go here.
 library shelf_helmet;
 
+export 'src/expect-ct/expect_ct.dart';
 export 'src/origin-agent-cluster/origin_agent_cluster.dart';
 export 'src/referrer-policy/referrer_policy.dart';
 export 'src/strict-transport-security/strict_transport_security.dart';
