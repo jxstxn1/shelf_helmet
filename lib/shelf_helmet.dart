@@ -3,6 +3,7 @@
 /// More dartdocs go here.
 library shelf_helmet;
 
+export 'src/referrer-policy/referrer_policy.dart';
 export 'src/strict-transport-security/strict_transport_security.dart';
 export 'src/x-content-type-options/x_content_type_options.dart';
 export 'src/x-dns-prefetch-control/x_dns_prefetch_control.dart';
