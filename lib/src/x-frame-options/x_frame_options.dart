@@ -1,8 +1,8 @@
 import 'package:shelf/shelf.dart';
 
 enum XFrameOptions {
-  deny('deny'),
-  sameorigin('sameorigin');
+  deny('DENY'),
+  sameorigin('SAMEORIGIN');
 
   final String option;
   const XFrameOptions(this.option);

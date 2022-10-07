@@ -5,7 +5,7 @@ import 'package:test/test.dart';
 import '../utils/test_utils.dart';
 
 void main() {
-  test("Should add the 'X-Permitted-Cross-Domain-Policies:none' Header", () async {
+  test("Should add the 'X-Frame-Options:SAMEORIGIN' Header", () async {
     final handler = const Pipeline().addMiddleware(xFrameOptions()).addHandler(
           (req) => syncHandler(
             req,
@@ -19,11 +19,11 @@ void main() {
     );
 
     expect(response.statusCode, 200);
-    expect(response.headers, containsPair('x-frame-options', 'sameorigin'));
+    expect(response.headers, containsPair('x-frame-options', 'SAMEORIGIN'));
     expect(response.headers, containsPair('content-type', 'application/json'));
   });
 
-  test("Should add the 'X-Frame-Options:deny' Header", () async {
+  test("Should add the 'X-Frame-Options:DENY' Header", () async {
     final handler = const Pipeline().addMiddleware(xFrameOptions(xFrameOption: XFrameOptions.deny)).addHandler(
           (req) => syncHandler(
             req,
@@ -37,7 +37,7 @@ void main() {
     );
 
     expect(response.statusCode, 200);
-    expect(response.headers, containsPair('x-frame-options', 'deny'));
+    expect(response.headers, containsPair('x-frame-options', 'DENY'));
     expect(response.headers, containsPair('content-type', 'application/json'));
   });
 }
