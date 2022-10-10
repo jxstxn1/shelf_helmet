@@ -3,16 +3,16 @@
 /// More dartdocs go here.
 library shelf_helmet;
 
-export 'src/cross-origin-embedder-policy/cross_origin_embedder_policy.dart';
-export 'src/cross-origin-opener-policy/cross_origin_opener_policy.dart';
-export 'src/cross-origin-resource-policy/cross_origin_resource_policy.dart';
-export 'src/expect-ct/expect_ct.dart';
-export 'src/origin-agent-cluster/origin_agent_cluster.dart';
-export 'src/referrer-policy/referrer_policy.dart';
-export 'src/strict-transport-security/strict_transport_security.dart';
-export 'src/x-content-type-options/x_content_type_options.dart';
-export 'src/x-dns-prefetch-control/x_dns_prefetch_control.dart';
-export 'src/x-download-options/x_download_options.dart';
-export 'src/x-frame-options/x_frame_options.dart';
-export 'src/x-permitted-cross-domain-policies/x_permitted_cross_domain_policies.dart';
-export 'src/x-xss-protection/x_xss_protection.dart';
+export 'src/middlewares/cross_origin_embedder_policy.dart';
+export 'src/middlewares/cross_origin_opener_policy.dart';
+export 'src/middlewares/cross_origin_resource_policy.dart';
+export 'src/middlewares/expect_ct.dart';
+export 'src/middlewares/origin_agent_cluster.dart';
+export 'src/middlewares/referrer_policy.dart';
+export 'src/middlewares/strict_transport_security.dart';
+export 'src/middlewares/x_content_type_options.dart';
+export 'src/middlewares/x_dns_prefetch_control.dart';
+export 'src/middlewares/x_download_options.dart';
+export 'src/middlewares/x_frame_options.dart';
+export 'src/middlewares/x_permitted_cross_domain_policies.dart';
+export 'src/middlewares/x_xss_protection.dart';
