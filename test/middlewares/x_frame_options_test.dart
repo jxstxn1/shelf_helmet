@@ -24,7 +24,9 @@ void main() {
   });
 
   test("Should add the 'X-Frame-Options:DENY' Header", () async {
-    final handler = const Pipeline().addMiddleware(xFrameOptions(xFrameOption: XFrameOptions.deny)).addHandler(
+    final handler = const Pipeline()
+        .addMiddleware(xFrameOptions(xFrameOption: XFrameOptions.deny))
+        .addHandler(
           (req) => syncHandler(
             req,
             headers: {'content-type': 'application/json'},

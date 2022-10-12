@@ -61,7 +61,10 @@ Middleware strictTransportSecurity({
     return (request) async {
       final response = await innerHandler(request);
       return response.change(
-        headers: {'strict-transport-security': args.join('; '), ...response.headersAll},
+        headers: {
+          'strict-transport-security': args.join('; '),
+          ...response.headersAll
+        },
       );
     };
   };

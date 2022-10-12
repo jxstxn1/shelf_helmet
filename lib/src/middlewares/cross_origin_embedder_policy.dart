@@ -23,13 +23,17 @@ enum CrossOriginEmbedderPolicyOptions {
 ///   policy: CrossOriginEmbedderPolicyOptions.credentialLess
 /// ));
 Middleware crossOriginEmbedderPolicy({
-  CrossOriginEmbedderPolicyOptions policy = CrossOriginEmbedderPolicyOptions.requireCorp,
+  CrossOriginEmbedderPolicyOptions policy =
+      CrossOriginEmbedderPolicyOptions.requireCorp,
 }) {
   return (innerHandler) {
     return (request) async {
       final response = await innerHandler(request);
       return response.change(
-        headers: {'cross-origin-embedder-policy': policy.option, ...response.headersAll},
+        headers: {
+          'cross-origin-embedder-policy': policy.option,
+          ...response.headersAll
+        },
       );
     };
   };

@@ -21,7 +21,10 @@ Middleware xDNSPrefetchControl({bool allow = false}) {
     return (request) async {
       final response = await innerHandler(request);
       return response.change(
-        headers: {'x-dns-prefetch-control': allow ? 'on' : 'off', ...response.headersAll},
+        headers: {
+          'x-dns-prefetch-control': allow ? 'on' : 'off',
+          ...response.headersAll
+        },
       );
     };
   };

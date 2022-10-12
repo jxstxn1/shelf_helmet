@@ -30,13 +30,17 @@ enum CrossOriginResourcePolicyOptions {
 /// ));
 /// ```
 Middleware crossOriginResourcePolicy({
-  CrossOriginResourcePolicyOptions policy = CrossOriginResourcePolicyOptions.sameOrigin,
+  CrossOriginResourcePolicyOptions policy =
+      CrossOriginResourcePolicyOptions.sameOrigin,
 }) {
   return (innerHandler) {
     return (request) async {
       final response = await innerHandler(request);
       return response.change(
-        headers: {'cross-origin-resource-policy': policy.option, ...response.headersAll},
+        headers: {
+          'cross-origin-resource-policy': policy.option,
+          ...response.headersAll
+        },
       );
     };
   };

@@ -57,7 +57,9 @@ Middleware referrerPolicy({
 }) {
   final args = [
     for (final policy in policies)
-      policy == ReferrerPolicyToken.emptyString ? ReferrerPolicyToken.noReferrerWhenDowngrade.token : policy.token
+      policy == ReferrerPolicyToken.emptyString
+          ? ReferrerPolicyToken.noReferrerWhenDowngrade.token
+          : policy.token
   ];
   return (innerHandler) {
     return (request) async {

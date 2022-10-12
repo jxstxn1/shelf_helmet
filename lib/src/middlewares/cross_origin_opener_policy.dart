@@ -30,13 +30,17 @@ enum CrossOriginOpenerPolicyOptions {
 /// ));
 /// ```
 Middleware crossOriginOpenerPolicy({
-  CrossOriginOpenerPolicyOptions policy = CrossOriginOpenerPolicyOptions.sameOrigin,
+  CrossOriginOpenerPolicyOptions policy =
+      CrossOriginOpenerPolicyOptions.sameOrigin,
 }) {
   return (innerHandler) {
     return (request) async {
       final response = await innerHandler(request);
       return response.change(
-        headers: {'cross-origin-opener-policy': policy.option, ...response.headersAll},
+        headers: {
+          'cross-origin-opener-policy': policy.option,
+          ...response.headersAll
+        },
       );
     };
   };

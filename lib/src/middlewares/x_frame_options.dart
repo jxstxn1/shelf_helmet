@@ -27,12 +27,17 @@ enum XFrameOptions {
 /// .addMiddleware(xPermittedCrossDomainPolies(permittedPolicie: PermittedPolicies.deny));
 /// .addMiddleware(xPermittedCrossDomainPolies(permittedPolicie: PermittedPolicies.sameorigin));
 /// ```
-Middleware xFrameOptions({XFrameOptions xFrameOption = XFrameOptions.sameorigin}) {
+Middleware xFrameOptions({
+  XFrameOptions xFrameOption = XFrameOptions.sameorigin,
+}) {
   return (innerHandler) {
     return (request) async {
       final response = await innerHandler(request);
       return response.change(
-        headers: {'x-frame-options': xFrameOption.option, ...response.headersAll},
+        headers: {
+          'x-frame-options': xFrameOption.option,
+          ...response.headersAll
+        },
       );
     };
   };

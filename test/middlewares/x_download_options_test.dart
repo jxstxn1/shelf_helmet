@@ -6,12 +6,13 @@ import '../utils/test_utils.dart';
 
 void main() {
   test("Should add the 'X-Download-Options:noopen' Header", () async {
-    final handler = const Pipeline().addMiddleware(xDownloadOptions()).addHandler(
-          (req) => syncHandler(
-            req,
-            headers: {'content-type': 'application/json'},
-          ),
-        );
+    final handler =
+        const Pipeline().addMiddleware(xDownloadOptions()).addHandler(
+              (req) => syncHandler(
+                req,
+                headers: {'content-type': 'application/json'},
+              ),
+            );
 
     final response = await makeRequest(
       handler,

@@ -5,13 +5,15 @@ import 'package:test/test.dart';
 import '../utils/test_utils.dart';
 
 void main() {
-  test("Should add the 'Cross-Origin-Opener-Policy:same-origin' Header", () async {
-    final handler = const Pipeline().addMiddleware(crossOriginOpenerPolicy()).addHandler(
-          (req) => syncHandler(
-            req,
-            headers: {'content-type': 'application/json'},
-          ),
-        );
+  test("Should add the 'Cross-Origin-Opener-Policy:same-origin' Header",
+      () async {
+    final handler =
+        const Pipeline().addMiddleware(crossOriginOpenerPolicy()).addHandler(
+              (req) => syncHandler(
+                req,
+                headers: {'content-type': 'application/json'},
+              ),
+            );
 
     final response = await makeRequest(
       handler,
@@ -20,10 +22,14 @@ void main() {
     );
 
     expect(response.statusCode, 200);
-    expect(response.headers, containsPair('cross-origin-opener-policy', 'same-origin'));
+    expect(
+      response.headers,
+      containsPair('cross-origin-opener-policy', 'same-origin'),
+    );
     expect(response.headers, containsPair('content-type', 'application/json'));
   });
-  test("Should add the 'Cross-Origin-Opener-Policy:cross-origin' Header", () async {
+  test("Should add the 'Cross-Origin-Opener-Policy:cross-origin' Header",
+      () async {
     final handler = const Pipeline()
         .addMiddleware(
           crossOriginOpenerPolicy(
@@ -44,10 +50,14 @@ void main() {
     );
 
     expect(response.statusCode, 200);
-    expect(response.headers, containsPair('cross-origin-opener-policy', 'same-origin-allow-popups'));
+    expect(
+      response.headers,
+      containsPair('cross-origin-opener-policy', 'same-origin-allow-popups'),
+    );
     expect(response.headers, containsPair('content-type', 'application/json'));
   });
-  test("Should add the 'Cross-Origin-Opener-Policy:unsafe-none' Header", () async {
+  test("Should add the 'Cross-Origin-Opener-Policy:unsafe-none' Header",
+      () async {
     final handler = const Pipeline()
         .addMiddleware(
           crossOriginOpenerPolicy(
@@ -68,7 +78,10 @@ void main() {
     );
 
     expect(response.statusCode, 200);
-    expect(response.headers, containsPair('cross-origin-opener-policy', 'unsafe-none'));
+    expect(
+      response.headers,
+      containsPair('cross-origin-opener-policy', 'unsafe-none'),
+    );
     expect(response.headers, containsPair('content-type', 'application/json'));
   });
 }

@@ -24,9 +24,14 @@ void main() {
     expect(response.headers, containsPair('content-type', 'application/json'));
   });
 
-  test("Should add the 'Referrer-Policy:no-referrer-when-downgrade' Header", () async {
+  test("Should add the 'Referrer-Policy:no-referrer-when-downgrade' Header",
+      () async {
     final handler = const Pipeline()
-        .addMiddleware(referrerPolicy(policies: [ReferrerPolicyToken.noReferrerWhenDowngrade]))
+        .addMiddleware(
+          referrerPolicy(
+            policies: [ReferrerPolicyToken.noReferrerWhenDowngrade],
+          ),
+        )
         .addHandler(
           (req) => syncHandler(
             req,
@@ -41,18 +46,24 @@ void main() {
     );
 
     expect(response.statusCode, 200);
-    expect(response.headers, containsPair('referrer-policy', 'no-referrer-when-downgrade'));
+    expect(
+      response.headers,
+      containsPair('referrer-policy', 'no-referrer-when-downgrade'),
+    );
     expect(response.headers, containsPair('content-type', 'application/json'));
   });
 
   test("Should add the 'Referrer-Policy:same-origin' Header", () async {
-    final handler =
-        const Pipeline().addMiddleware(referrerPolicy(policies: [ReferrerPolicyToken.sameOrigin])).addHandler(
-              (req) => syncHandler(
-                req,
-                headers: {'content-type': 'application/json'},
-              ),
-            );
+    final handler = const Pipeline()
+        .addMiddleware(
+          referrerPolicy(policies: [ReferrerPolicyToken.sameOrigin]),
+        )
+        .addHandler(
+          (req) => syncHandler(
+            req,
+            headers: {'content-type': 'application/json'},
+          ),
+        );
 
     final response = await makeRequest(
       handler,
@@ -66,7 +77,9 @@ void main() {
   });
 
   test("Should add the 'Referrer-Policy:origin' Header", () async {
-    final handler = const Pipeline().addMiddleware(referrerPolicy(policies: [ReferrerPolicyToken.origin])).addHandler(
+    final handler = const Pipeline()
+        .addMiddleware(referrerPolicy(policies: [ReferrerPolicyToken.origin]))
+        .addHandler(
           (req) => syncHandler(
             req,
             headers: {'content-type': 'application/json'},
@@ -85,13 +98,16 @@ void main() {
   });
 
   test("Should add the 'Referrer-Policy:strict-origin' Header", () async {
-    final handler =
-        const Pipeline().addMiddleware(referrerPolicy(policies: [ReferrerPolicyToken.strictOrigin])).addHandler(
-              (req) => syncHandler(
-                req,
-                headers: {'content-type': 'application/json'},
-              ),
-            );
+    final handler = const Pipeline()
+        .addMiddleware(
+          referrerPolicy(policies: [ReferrerPolicyToken.strictOrigin]),
+        )
+        .addHandler(
+          (req) => syncHandler(
+            req,
+            headers: {'content-type': 'application/json'},
+          ),
+        );
 
     final response = await makeRequest(
       handler,
@@ -104,9 +120,12 @@ void main() {
     expect(response.headers, containsPair('content-type', 'application/json'));
   });
 
-  test("Should add the 'Referrer-Policy:origin-when-cross-origin' Header", () async {
+  test("Should add the 'Referrer-Policy:origin-when-cross-origin' Header",
+      () async {
     final handler = const Pipeline()
-        .addMiddleware(referrerPolicy(policies: [ReferrerPolicyToken.originWhenCrossOrigin]))
+        .addMiddleware(
+          referrerPolicy(policies: [ReferrerPolicyToken.originWhenCrossOrigin]),
+        )
         .addHandler(
           (req) => syncHandler(
             req,
@@ -121,13 +140,22 @@ void main() {
     );
 
     expect(response.statusCode, 200);
-    expect(response.headers, containsPair('referrer-policy', 'origin-when-cross-origin'));
+    expect(
+      response.headers,
+      containsPair('referrer-policy', 'origin-when-cross-origin'),
+    );
     expect(response.headers, containsPair('content-type', 'application/json'));
   });
 
-  test("Should add the 'Referrer-Policy:strict-origin-when-cross-origin' Header", () async {
+  test(
+      "Should add the 'Referrer-Policy:strict-origin-when-cross-origin' Header",
+      () async {
     final handler = const Pipeline()
-        .addMiddleware(referrerPolicy(policies: [ReferrerPolicyToken.strictOriginWhenCrossOrigin]))
+        .addMiddleware(
+          referrerPolicy(
+            policies: [ReferrerPolicyToken.strictOriginWhenCrossOrigin],
+          ),
+        )
         .addHandler(
           (req) => syncHandler(
             req,
@@ -142,18 +170,24 @@ void main() {
     );
 
     expect(response.statusCode, 200);
-    expect(response.headers, containsPair('referrer-policy', 'strict-origin-when-cross-origin'));
+    expect(
+      response.headers,
+      containsPair('referrer-policy', 'strict-origin-when-cross-origin'),
+    );
     expect(response.headers, containsPair('content-type', 'application/json'));
   });
 
   test("Should add the 'Referrer-Policy:unsafe-url' Header", () async {
-    final handler =
-        const Pipeline().addMiddleware(referrerPolicy(policies: [ReferrerPolicyToken.unsafeUrl])).addHandler(
-              (req) => syncHandler(
-                req,
-                headers: {'content-type': 'application/json'},
-              ),
-            );
+    final handler = const Pipeline()
+        .addMiddleware(
+          referrerPolicy(policies: [ReferrerPolicyToken.unsafeUrl]),
+        )
+        .addHandler(
+          (req) => syncHandler(
+            req,
+            headers: {'content-type': 'application/json'},
+          ),
+        );
 
     final response = await makeRequest(
       handler,
@@ -166,9 +200,14 @@ void main() {
     expect(response.headers, containsPair('content-type', 'application/json'));
   });
 
-  test("Should add the 'Referrer-Policy:no-referrer-when-downgrade' Header", () async {
+  test("Should add the 'Referrer-Policy:no-referrer-when-downgrade' Header",
+      () async {
     final handler = const Pipeline()
-        .addMiddleware(referrerPolicy(policies: [ReferrerPolicyToken.noReferrerWhenDowngrade]))
+        .addMiddleware(
+          referrerPolicy(
+            policies: [ReferrerPolicyToken.noReferrerWhenDowngrade],
+          ),
+        )
         .addHandler(
           (req) => syncHandler(
             req,
@@ -183,11 +222,16 @@ void main() {
     );
 
     expect(response.statusCode, 200);
-    expect(response.headers, containsPair('referrer-policy', 'no-referrer-when-downgrade'));
+    expect(
+      response.headers,
+      containsPair('referrer-policy', 'no-referrer-when-downgrade'),
+    );
     expect(response.headers, containsPair('content-type', 'application/json'));
   });
 
-  test("Should add the 'Referrer-Policy:no-referrer-when-downgrade,same-origin' Header", () async {
+  test(
+      "Should add the 'Referrer-Policy:no-referrer-when-downgrade,same-origin' Header",
+      () async {
     final handler = const Pipeline()
         .addMiddleware(
           referrerPolicy(
@@ -211,7 +255,13 @@ void main() {
     );
 
     expect(response.statusCode, 200);
-    expect(response.headers, containsPair('referrer-policy', 'no-referrer-when-downgrade,same-origin'));
+    expect(
+      response.headers,
+      containsPair(
+        'referrer-policy',
+        'no-referrer-when-downgrade,same-origin',
+      ),
+    );
     expect(response.headers, containsPair('content-type', 'application/json'));
   });
 }
