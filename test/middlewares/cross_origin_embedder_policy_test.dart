@@ -5,6 +5,13 @@ import 'package:test/test.dart';
 import '../utils/test_utils.dart';
 
 void main() {
+  test('CrossOriginEmbedderPolicyOptions Enum should have correct values', () {
+    expect(CrossOriginEmbedderPolicyOptions.requireCorp.option, 'require-corp');
+    expect(
+      CrossOriginEmbedderPolicyOptions.credentialLess.option,
+      'credentialless',
+    );
+  });
   test("Should add the 'Cross-Origin-Embedder-Policy:require-corp' Header",
       () async {
     final handler =

@@ -5,6 +5,11 @@ import 'package:test/test.dart';
 import '../utils/test_utils.dart';
 
 void main() {
+  test('CrossOriginResourcePolicyOptions Enum should have correct values', () {
+    expect(CrossOriginResourcePolicyOptions.sameSite.option, 'same-site');
+    expect(CrossOriginResourcePolicyOptions.sameOrigin.option, 'same-origin');
+    expect(CrossOriginResourcePolicyOptions.crossOrigin.option, 'cross-origin');
+  });
   test("Should add the 'Cross-Origin-Resource-Policy:same-origin' Header",
       () async {
     final handler =

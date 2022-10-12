@@ -5,6 +5,14 @@ import 'package:test/test.dart';
 import '../utils/test_utils.dart';
 
 void main() {
+  test('CrossOriginOpenerPolicyOptions Enum should have correct values', () {
+    expect(CrossOriginOpenerPolicyOptions.sameOrigin.option, 'same-origin');
+    expect(
+      CrossOriginOpenerPolicyOptions.sameOriginAllowPopUps.option,
+      'same-origin-allow-popups',
+    );
+    expect(CrossOriginOpenerPolicyOptions.unsafeNone.option, 'unsafe-none');
+  });
   test("Should add the 'Cross-Origin-Opener-Policy:same-origin' Header",
       () async {
     final handler =

@@ -5,6 +5,10 @@ import 'package:test/test.dart';
 import '../utils/test_utils.dart';
 
 void main() {
+  test('XFrameOptions Enum should have correct values', () {
+    expect(XFrameOptions.deny.option, 'DENY');
+    expect(XFrameOptions.sameorigin.option, 'SAMEORIGIN');
+  });
   test("Should add the 'X-Frame-Options:SAMEORIGIN' Header", () async {
     final handler = const Pipeline().addMiddleware(xFrameOptions()).addHandler(
           (req) => syncHandler(

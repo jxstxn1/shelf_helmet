@@ -5,6 +5,26 @@ import 'package:test/test.dart';
 import '../utils/test_utils.dart';
 
 void main() {
+  test('ReferrerPolicyToken Enum should have correct values', () {
+    expect(ReferrerPolicyToken.noReferrer.token, 'no-referrer');
+    expect(
+      ReferrerPolicyToken.noReferrerWhenDowngrade.token,
+      'no-referrer-when-downgrade',
+    );
+    expect(ReferrerPolicyToken.sameOrigin.token, 'same-origin');
+    expect(ReferrerPolicyToken.origin.token, 'origin');
+    expect(ReferrerPolicyToken.strictOrigin.token, 'strict-origin');
+    expect(
+      ReferrerPolicyToken.originWhenCrossOrigin.token,
+      'origin-when-cross-origin',
+    );
+    expect(
+      ReferrerPolicyToken.strictOriginWhenCrossOrigin.token,
+      'strict-origin-when-cross-origin',
+    );
+    expect(ReferrerPolicyToken.unsafeUrl.token, 'unsafe-url');
+    expect(ReferrerPolicyToken.emptyString.token, '');
+  });
   test("Should add the 'Referrer-Policy:no-referrer' Header", () async {
     final handler = const Pipeline().addMiddleware(referrerPolicy()).addHandler(
           (req) => syncHandler(

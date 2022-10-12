@@ -5,6 +5,12 @@ import 'package:test/test.dart';
 import '../utils/test_utils.dart';
 
 void main() {
+  test('PermittedPolicies Enum should have correct values', () {
+    expect(PermittedPolicies.none.policie, 'none');
+    expect(PermittedPolicies.masterOnly.policie, 'master-only');
+    expect(PermittedPolicies.byContentType.policie, 'by-content-type');
+    expect(PermittedPolicies.all.policie, 'all');
+  });
   test("Should add the 'X-Permitted-Cross-Domain-Policies:none' Header",
       () async {
     final handler = const Pipeline()
