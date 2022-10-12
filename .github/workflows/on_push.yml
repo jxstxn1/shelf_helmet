@@ -1,0 +1,13 @@
+name: On Push
+on: [push]
+jobs:
+  check_pana_score:
+    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/pana.yml@v1
+    with:
+      min_score: 130
+  build:
+    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/dart_package.yml@v1
+    with:
+      dart_sdk: "stable"
+      platform: "chrome,vm"
+      min_coverage: 98
