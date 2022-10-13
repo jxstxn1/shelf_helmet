@@ -1,2 +1,3 @@
 # OS Related Files
 .DS_Store
+coverage/
