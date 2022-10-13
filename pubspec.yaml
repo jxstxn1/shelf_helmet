@@ -1,7 +1,8 @@
 name: shelf_helmet
-description: A starting point for Dart libraries or applications.
+description: A port of the NodeJS helmet package to Dart. Helmet helps you secure your Dart Shelf/Frog apps by setting various HTTP headers.
 version: 1.0.0
-# homepage: https://www.example.com
+homepage: https://jxstxn.de
+repository: https://github.com/jxstxn1/shelf_helmet
 
 environment:
   sdk: '>=2.18.0 <3.0.0'
