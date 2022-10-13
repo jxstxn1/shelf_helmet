@@ -3,6 +3,7 @@
 /// More dartdocs go here.
 library shelf_helmet;
 
+export 'src/middlewares/content_security_policy.dart';
 export 'src/middlewares/cross_origin_embedder_policy.dart';
 export 'src/middlewares/cross_origin_opener_policy.dart';
 export 'src/middlewares/cross_origin_resource_policy.dart';
