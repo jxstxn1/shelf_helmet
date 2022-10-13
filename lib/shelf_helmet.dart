@@ -8,6 +8,7 @@ export 'src/middlewares/cross_origin_embedder_policy.dart';
 export 'src/middlewares/cross_origin_opener_policy.dart';
 export 'src/middlewares/cross_origin_resource_policy.dart';
 export 'src/middlewares/expect_ct.dart';
+export 'src/middlewares/helmet.dart';
 export 'src/middlewares/origin_agent_cluster.dart';
 export 'src/middlewares/referrer_policy.dart';
 export 'src/middlewares/strict_transport_security.dart';
