@@ -48,7 +48,8 @@ import 'package:shelf/shelf.dart';
 ///
 /// This header is [somewhat well-supported by browsers](https://caniuse.com/#feat=stricttransportsecurity).
 Middleware strictTransportSecurity({
-  StrictTransportSecurityOptions options = const StrictTransportSecurityOptions(),
+  StrictTransportSecurityOptions options =
+      const StrictTransportSecurityOptions(),
 }) {
   final List<String> args = [
     'max-age=${options.maxAge.inSeconds}',
@@ -59,7 +60,10 @@ Middleware strictTransportSecurity({
     return (request) async {
       final response = await innerHandler(request);
       return response.change(
-        headers: {'strict-transport-security': args.join('; '), ...response.headersAll},
+        headers: {
+          'strict-transport-security': args.join('; '),
+          ...response.headersAll
+        },
       );
     };
   };
