@@ -16,7 +16,7 @@ import 'package:shelf/shelf.dart';
 /// //Set X-DNS-Prefetch-Control: on
 /// .addMiddleware(xDownloadOptions(allow: true))
 /// ```
-Middleware xDNSPrefetchControl({bool allow = false}) {
+Middleware xDnsPrefetchControl({bool allow = false}) {
   return (innerHandler) {
     return (request) async {
       final response = await innerHandler(request);

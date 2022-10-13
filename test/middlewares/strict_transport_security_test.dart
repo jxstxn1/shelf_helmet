@@ -38,7 +38,13 @@ void main() {
       () async {
     final handler = const Pipeline()
         .addMiddleware(
-          strictTransportSecurity(maxAge: const Duration(days: 365)),
+          strictTransportSecurity(
+            options: const StrictTransportSecurityOptions(
+              maxAge: Duration(
+                days: 365,
+              ),
+            ),
+          ),
         )
         .addHandler(
           (req) => syncHandler(
@@ -67,7 +73,13 @@ void main() {
   test("Should add the 'Strict-Transport-Security:max-age=15552000' Header",
       () async {
     final handler = const Pipeline()
-        .addMiddleware(strictTransportSecurity(includeSubDomains: false))
+        .addMiddleware(
+          strictTransportSecurity(
+            options: const StrictTransportSecurityOptions(
+              includeSubDomains: false,
+            ),
+          ),
+        )
         .addHandler(
           (req) => syncHandler(
             req,
@@ -92,7 +104,11 @@ void main() {
       "Should add the 'Strict-Transport-Security:max-age=15552000; includeSubDomains; preload' Header",
       () async {
     final handler = const Pipeline()
-        .addMiddleware(strictTransportSecurity(preload: true))
+        .addMiddleware(
+          strictTransportSecurity(
+            options: const StrictTransportSecurityOptions(preload: true),
+          ),
+        )
         .addHandler(
           (req) => syncHandler(
             req,

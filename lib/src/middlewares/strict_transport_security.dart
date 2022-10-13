@@ -48,24 +48,31 @@ import 'package:shelf/shelf.dart';
 ///
 /// This header is [somewhat well-supported by browsers](https://caniuse.com/#feat=stricttransportsecurity).
 Middleware strictTransportSecurity({
-  Duration maxAge = const Duration(days: 180),
-  bool includeSubDomains = true,
-  bool preload = false,
+  StrictTransportSecurityOptions options = const StrictTransportSecurityOptions(),
 }) {
   final List<String> args = [
-    'max-age=${maxAge.inSeconds}',
-    if (includeSubDomains) 'includeSubDomains',
-    if (preload) 'preload',
+    'max-age=${options.maxAge.inSeconds}',
+    if (options.includeSubDomains) 'includeSubDomains',
+    if (options.preload) 'preload',
   ];
   return (innerHandler) {
     return (request) async {
       final response = await innerHandler(request);
       return response.change(
-        headers: {
-          'strict-transport-security': args.join('; '),
-          ...response.headersAll
-        },
+        headers: {'strict-transport-security': args.join('; '), ...response.headersAll},
       );
     };
   };
+}
+
+class StrictTransportSecurityOptions {
+  final Duration maxAge;
+  final bool includeSubDomains;
+  final bool preload;
+
+  const StrictTransportSecurityOptions({
+    this.maxAge = const Duration(days: 180),
+    this.includeSubDomains = true,
+    this.preload = false,
+  });
 }

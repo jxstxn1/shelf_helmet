@@ -43,13 +43,16 @@ enum PermittedPolicies {
 ///
 /// If you don't expect Adobe products to load data from your site, you get a minor security benefit by adding this header.
 Middleware xPermittedCrossDomainPolicies({
-  PermittedPolicies permittedPolicie = PermittedPolicies.none,
+  PermittedPolicies permittedPolicy = PermittedPolicies.none,
 }) {
   return (innerHandler) {
     return (request) async {
       final response = await innerHandler(request);
       return response.change(
-        headers: {'x-permitted-cross-domain-policies': permittedPolicie.policie, ...response.headersAll},
+        headers: {
+          'x-permitted-cross-domain-policies': permittedPolicy.policie,
+          ...response.headersAll
+        },
       );
     };
   };

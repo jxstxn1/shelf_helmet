@@ -7,7 +7,7 @@ import '../utils/test_utils.dart';
 void main() {
   test("Should add the 'X-DNS-Prefetch-Control:off' Header", () async {
     final handler =
-        const Pipeline().addMiddleware(xDNSPrefetchControl()).addHandler(
+        const Pipeline().addMiddleware(xDnsPrefetchControl()).addHandler(
               (req) => syncHandler(
                 req,
                 headers: {'content-type': 'application/json'},
@@ -27,7 +27,7 @@ void main() {
 
   test("Should add the 'X-DNS-Prefetch-Control:on' Header", () async {
     final handler = const Pipeline()
-        .addMiddleware(xDNSPrefetchControl(allow: true))
+        .addMiddleware(xDnsPrefetchControl(allow: true))
         .addHandler(
           (req) => syncHandler(
             req,
