@@ -6,19 +6,31 @@ jobs:
     with:
       min_score: 130
   build:
+      uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/dart_package.yml@v1
+      with:
+        dart_sdk: "stable"
+        platform: "vm"
+        min_coverage: 100
+  coverage:
+
     runs-on: ubuntu-latest
+    
+    container:
+      image:  google/dart:latest
+    
     steps:
-      - uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/dart_package.yml@v1
-        with:
-          dart_sdk: "stable"
-          platform: "vm"
-          min_coverage: 100
-      - uses: actions/checkout@master
-      - uses: codecov/codecov-action@v3
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
-          files: coverage/lcov.info
-          flags: unittests # optional
-          name: codecov-umbrella # optional
-          fail_ci_if_error: true # optional (default = false)
-          verbose: true # optional (default = false)
+    - uses: actions/checkout@v2
+    - name: Install coverage
+      run: dart pub global activate coverage 1.2.0
+    - name: Install dependencies
+      run: dart pub get    
+    - name: Run tests with coverage
+      run: dart run test --coverage="coverage"
+    - name: Convert coverage to ICOV
+      run: dart run coverage:format_coverage --lcov --in=coverage --out=coverage.lcov --report-on=lib
+    - name: Upload coverage to Codecov  
+      uses: codecov/codecov-action@v3
+      with:
+        token: ${{secrets.CODECOV_TOKEN}}
+        file: coverage.lcov
+  
