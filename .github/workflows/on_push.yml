@@ -10,4 +10,4 @@ jobs:
     with:
       dart_sdk: "stable"
       platform: "vm"
-      min_coverage: 98
+      min_coverage: 100
