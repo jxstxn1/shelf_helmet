@@ -11,11 +11,8 @@ void main() {
     expect(PermittedPolicies.byContentType.policie, 'by-content-type');
     expect(PermittedPolicies.all.policie, 'all');
   });
-  test("Should add the 'X-Permitted-Cross-Domain-Policies:none' Header",
-      () async {
-    final handler = const Pipeline()
-        .addMiddleware(xPermittedCrossDomainPolies())
-        .addHandler(
+  test("Should add the 'X-Permitted-Cross-Domain-Policies:none' Header", () async {
+    final handler = const Pipeline().addMiddleware(xPermittedCrossDomainPolicies()).addHandler(
           (req) => syncHandler(
             req,
             headers: {'content-type': 'application/json'},
@@ -35,11 +32,10 @@ void main() {
     expect(response.headers, containsPair('content-type', 'application/json'));
   });
 
-  test("Should add the 'X-Permitted-Cross-Domain-Policies:all' Header",
-      () async {
+  test("Should add the 'X-Permitted-Cross-Domain-Policies:all' Header", () async {
     final handler = const Pipeline()
         .addMiddleware(
-          xPermittedCrossDomainPolies(
+          xPermittedCrossDomainPolicies(
             permittedPolicie: PermittedPolicies.all,
           ),
         )
@@ -63,12 +59,10 @@ void main() {
     expect(response.headers, containsPair('content-type', 'application/json'));
   });
 
-  test(
-      "Should add the 'X-Permitted-Cross-Domain-Policies:by-content-type' Header",
-      () async {
+  test("Should add the 'X-Permitted-Cross-Domain-Policies:by-content-type' Header", () async {
     final handler = const Pipeline()
         .addMiddleware(
-          xPermittedCrossDomainPolies(
+          xPermittedCrossDomainPolicies(
             permittedPolicie: PermittedPolicies.byContentType,
           ),
         )
@@ -92,11 +86,10 @@ void main() {
     expect(response.headers, containsPair('content-type', 'application/json'));
   });
 
-  test("Should add the 'X-Permitted-Cross-Domain-Policies:master-only' Header",
-      () async {
+  test("Should add the 'X-Permitted-Cross-Domain-Policies:master-only' Header", () async {
     final handler = const Pipeline()
         .addMiddleware(
-          xPermittedCrossDomainPolies(
+          xPermittedCrossDomainPolicies(
             permittedPolicie: PermittedPolicies.masterOnly,
           ),
         )

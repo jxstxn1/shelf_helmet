@@ -42,17 +42,14 @@ enum PermittedPolicies {
 /// The `by-ftp-type` is not currently supported. Please open an issue or pull request if you desire this feature!
 ///
 /// If you don't expect Adobe products to load data from your site, you get a minor security benefit by adding this header.
-Middleware xPermittedCrossDomainPolies({
+Middleware xPermittedCrossDomainPolicies({
   PermittedPolicies permittedPolicie = PermittedPolicies.none,
 }) {
   return (innerHandler) {
     return (request) async {
       final response = await innerHandler(request);
       return response.change(
-        headers: {
-          'x-permitted-cross-domain-policies': permittedPolicie.policie,
-          ...response.headersAll
-        },
+        headers: {'x-permitted-cross-domain-policies': permittedPolicie.policie, ...response.headersAll},
       );
     };
   };
