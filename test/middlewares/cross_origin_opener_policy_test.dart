@@ -1,5 +1,5 @@
 import 'package:shelf/shelf.dart';
-import 'package:shelf_helmet/shelf_helmet.dart';
+import 'package:shelf_helmet/src/middlewares/cross_origin_opener_policy.dart';
 import 'package:test/test.dart';
 
 import '../utils/test_utils.dart';

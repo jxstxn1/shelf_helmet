@@ -19,9 +19,9 @@ enum CrossOriginOpenerPolicyOptions {
 /// // Sets Cross-Origin-Opener-Policy: same-origin
 /// .addMiddleware(crossOriginOpenerPolicy());
 ///
-/// // Sets "Cross-Origin-Opener-Policy: cross-origin"
+/// // Sets "Cross-Origin-Opener-Policy: same-origin-allow-popups"
 /// .addMiddleware(crossOriginOpenerPolicy(
-///   policy: CrossOriginOpenerPolicyOptions.crossOrigin
+///   policy: CrossOriginOpenerPolicyOptions.sameOriginAllowPopUps
 /// ));
 ///
 /// // Sets "Cross-Origin-Opener-Policy: unsafe-none"

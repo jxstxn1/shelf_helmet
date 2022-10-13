@@ -1,5 +1,7 @@
 import 'package:shelf/shelf.dart';
 import 'package:shelf_helmet/shelf_helmet.dart';
+import 'package:shelf_helmet/src/middlewares/cross_origin_embedder_policy.dart';
+import 'package:shelf_helmet/src/middlewares/cross_origin_opener_policy.dart';
 
 /// Helmet middleware for Dart.
 /// This middleware sets various HTTP headers to help secure your app.
