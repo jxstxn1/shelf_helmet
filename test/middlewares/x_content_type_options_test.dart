@@ -1,5 +1,5 @@
 import 'package:shelf/shelf.dart';
-import 'package:shelf_helmet/shelf_helmet.dart';
+import 'package:shelf_helmet/src/middlewares/x_content_type_options.dart';
 import 'package:test/test.dart';
 
 import '../utils/test_utils.dart';
