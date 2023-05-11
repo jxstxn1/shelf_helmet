@@ -36,7 +36,6 @@ By default, Helmet sets the following headers:
 
 ```http
 Content-Security-Policy: default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests
-Cross-Origin-Embedder-Policy: require-corp
 Cross-Origin-Opener-Policy: same-origin
 Cross-Origin-Resource-Policy: same-origin
 Origin-Agent-Cluster: ?1
@@ -101,7 +100,6 @@ import 'package:shelf_helmet/shelf_helmet.dart';
 // ...
 
 .addMiddleware(contentSecurityPolicy())
-.addMiddleware(crossOriginEmbedderPolicy())
 .addMiddleware(crossOriginOpenerPolicy())
 .addMiddleware(crossOriginResourcePolicy())
 .addMiddleware(originAgentCluster())
@@ -281,20 +279,17 @@ You can install this module separately as `contentSecurityPolicy`.
 <details>
 <summary><code>crossOriginEmbedderPolicy(options)</code></summary>
 
-Default:
+This header is not set by default.
 
-```http
-Cross-Origin-Embedder-Policy: require-corp
-```
-
-`crossOriginEmbedderPolicy` sets the `Cross-Origin-Embedder-Policy` header to `require-corp`. See [MDN's article on this header](https://developer.cdn.mozilla.net/en-US/docs/Web/HTTP/Headers/Cross-Origin-Embedder-Policy) for more.
+The `Cross-Origin-Embedder-Policy` header helps control what resources can be loaded cross-origin. See [MDN's article on this header](https://developer.cdn.mozilla.net/en-US/docs/Web/HTTP/Headers/Cross-Origin-Embedder-Policy) for more.
 
 Standalone example:
 
 ```dart
 import 'package:shelf_helmet/shelf_helmet.dart'
 
-// Sets Cross-Origin-Embedder-Policy: require-corp
+// Helmet does not set Cross-Origin-Embedder-Policy
+// by default.
 .addMiddleware(helmet());
 
 // Sets "Cross-Origin-Embedder-Policy: credentialless"

@@ -25,7 +25,6 @@ void main() {
       response.headers['content-security-policy'],
       "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests",
     );
-    expect(response.headers['cross-origin-embedder-policy'], 'require-corp');
     expect(response.headers['cross-origin-opener-policy'], 'same-origin');
     expect(response.headers['cross-origin-resource-policy'], 'same-origin');
     expect(response.headers['origin-agent-cluster'], '?1');
@@ -52,7 +51,6 @@ void main() {
                 helmet(
                   options: const HelmetOptions(
                     enableContentSecurityPolicy: false,
-                    enableCrossOriginEmbedderPolicy: false,
                     enableCrossOriginOpenerPolicy: false,
                     enableCrossOriginResourcePolicy: false,
                     enableOriginAgentCluster: false,

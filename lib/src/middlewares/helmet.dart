@@ -14,7 +14,6 @@ import 'package:shelf_helmet/shelf_helmet.dart';
 /// This middleware sets the following headers:
 /// ```http
 /// Content-Security-Policy: default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests
-/// Cross-Origin-Embedder-Policy: require-corp
 /// Cross-Origin-Opener-Policy: same-origin
 /// Cross-Origin-Resource-Policy: same-origin
 /// Origin-Agent-Cluster: ?1
@@ -100,7 +99,7 @@ class HelmetOptions {
   const HelmetOptions({
     this.enableContentSecurityPolicy = true,
     this.cspOptions = const ContentSecurityPolicyOptions.useDefaults(),
-    this.enableCrossOriginEmbedderPolicy = true,
+    this.enableCrossOriginEmbedderPolicy = false,
     this.coepOptions = CrossOriginEmbedderPolicyOptions.requireCorp,
     this.enableCrossOriginOpenerPolicy = true,
     this.coopOptions = CrossOriginOpenerPolicyOptions.sameOrigin,
