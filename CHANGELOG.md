@@ -1,3 +1,8 @@
+## 2.0.0
+
+- **Breaking**: Disabled `crossOriginEmbedderPolicy` by default.
+- Added issue tracker and topics.
+
 ## 1.1.0
 
 - Now Exporting:
