@@ -5,6 +5,16 @@ homepage: https://jxstxn.de
 repository: https://github.com/jxstxn1/shelf_helmet
 issue_tracker: https://github.com/jxstxn1/shelf_helmet/issues
 
+topics:
+  - shelf
+  - security
+  - helmet
+  - dart
+  - dart_frog
+  - dartlang
+  - middleware
+  - shelf_helmet
+
 environment:
   sdk: '>=2.18.0 <3.0.0'
 
