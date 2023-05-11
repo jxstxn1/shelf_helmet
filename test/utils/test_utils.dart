@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:shelf/shelf.dart';
+import 'package:test/test.dart';
 
 final Uri clientUri = Uri.parse('http://127.0.0.1:4322/');
 
@@ -41,4 +42,25 @@ Future<Response> makeRequest(
       );
     },
   );
+}
+
+void defaultHelmetOptionsExpecter(Response response) {
+  expect(
+    response.headers['content-security-policy'],
+    "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests",
+  );
+  expect(response.headers['cross-origin-opener-policy'], 'same-origin');
+  expect(response.headers['cross-origin-resource-policy'], 'same-origin');
+  expect(response.headers['origin-agent-cluster'], '?1');
+  expect(response.headers['referrer-policy'], 'no-referrer');
+  expect(
+    response.headers['strict-transport-security'],
+    'max-age=15552000; includeSubDomains',
+  );
+  expect(response.headers['x-content-type-options'], 'nosniff');
+  expect(response.headers['x-dns-prefetch-control'], 'off');
+  expect(response.headers['x-download-options'], 'noopen');
+  expect(response.headers['x-frame-options'], 'SAMEORIGIN');
+  expect(response.headers['x-permitted-cross-domain-policies'], 'none');
+  expect(response.headers['x-xss-protection'], '0');
 }
