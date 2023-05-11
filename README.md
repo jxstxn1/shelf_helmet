@@ -115,8 +115,7 @@ import 'package:shelf_helmet/shelf_helmet.dart';
 
 ## Reference
 
-<details>
-<summary><code>helmet(options)</code></summary>
+## helmet(options)
 
 Helmet is the top-level middleware for this module, including all 13 others.
 
@@ -145,10 +144,7 @@ Most of the middlewares have options, which are documented in more detail below.
 
 Each middleware's name is listed below.
 
-</details>
-
-<details>
-<summary><code>contentSecurityPolicy(options)</code></summary>
+## contentSecurityPolicy(options)
 
 Default:
 
@@ -274,10 +270,7 @@ Examples:
 
 You can install this module separately as `contentSecurityPolicy`.
 
-</details>
-
-<details>
-<summary><code>crossOriginEmbedderPolicy(options)</code></summary>
+## crossOriginEmbedderPolicy(options)
 
 This header is not set by default.
 
@@ -302,12 +295,9 @@ import 'package:shelf_helmet/shelf_helmet.dart'
 );
 ```
 
-You can't install this module separately.
+You can install this module separately as `crossEmbedderPolicy`.
 
-</details>
-
-<details>
-<summary><code>crossOriginOpenerPolicy()</code></summary>
+## crossOriginOpenerPolicy()
 
 ```http
 Cross-Origin-Opener-Policy: same-origin
@@ -331,12 +321,9 @@ Example usage with Helmet:
 ));
 ```
 
-You can't install this module separately.
+You can install this module separately as `crossOriginOpenerPolicy`.
 
-</details>
-
-<details>
-<summary><code>crossOriginResourcePolicy()</code></summary>
+## crossOriginResourcePolicy()
 
 Default:
 
@@ -383,10 +370,7 @@ import 'package:shelf_helmet/shelf_helmet.dart'
 
 You can install this module separately as `crossOriginResourcePolicy`.
 
-</details>
-
-<details>
-<summary><code>helmet.referrerPolicy(options)</code></summary>
+## helmet.referrerPolicy(options)
 
 Default:
 
@@ -414,10 +398,7 @@ import 'package:shelf_helmet/shelf_helmet.dart';
 
 You can install this module separately as `referrerPolicy`.
 
-</details>
-
-<details>
-<summary><code>strictTransportSecurity</code></summary>
+## strictTransportSecurity
 
 Default:
 
@@ -474,10 +455,7 @@ import 'package:shelf_helmet/shelf_helmet.dart';
 
 This header is [somewhat well-supported by browsers](https://caniuse.com/#feat=stricttransportsecurity).
 
-</details>
-
-<details>
-<summary><code>xContentTypeOptions</code></summary>
+## xContentTypeOptions
 
 Default:
 
@@ -513,10 +491,7 @@ of how browsers behave when this header is sent.
 
 You can't install this module separately.
 
-</details>
-
-<details>
-<summary><code>xDnsPrefetchControl</code></summary>
+## xDnsPrefetchControl
 
 Default:
 
@@ -543,10 +518,7 @@ import 'package:shelf_helmet/shelf_helmet.dart'
 
 You can install this module separately as `xDnsPrefetchControl`.
 
-</details>
-
-<details>
-<summary><code>xDownloadOptions</code></summary>
+## xDownloadOptions
 
 Default:
 
@@ -577,10 +549,7 @@ of setting the headers, though.
 
 You can install this module separately as `xDownloadOptions`.
 
-</details>
-
-<details>
-<summary><code>xFrameOptions(options)</code></summary>
+## xFrameOptions(options)
 
 Default:
 
@@ -607,10 +576,7 @@ import 'package:shelf_helmet/shelf_helmet.dart'
 .addMiddleware(xPermittedCrossDomainPolies(permittedPolicie: PermittedPolicies.sameorigin));
 ```
 
-</details>
-
-<details>
-<summary><code>xPermittedCrossDomainPolicies(options)</code></summary>
+## xPermittedCrossDomainPolicies(options)
 
 Default:
 
@@ -644,10 +610,7 @@ If you don't expect Adobe products to load data from your site, you get a minor 
 
 You can install this module separately as `xPermittedCrossDomainPolicies`.
 
-</details>
-
-<details>
-<summary><code>xPoweredBy</code></summary>
+## xPoweredBy
 
 Simple instructions to remove the `X-Powered-By` HTTP header.
 Technically a middleware is the way of how to remove the header.
@@ -667,11 +630,7 @@ You can find a tutorial of how to remove in the official [`dart_frog` documentat
 
 Hackers can exploit known vulnerabilities in Shelf/Dart if they see that your site is powered by Shelf (or whichever framework you use). For example, `X-Powered-By: Dart with package:shelf` is sent in every HTTP request coming from Shelf and DartFrog, by default. This won't provide much security benefit ([as discussed here](https://github.com/expressjs/express/pull/2813#issuecomment-159270428)), but might help a tiny bit. It will also improve performance by reducing the number of bytes sent.
 
-
-</details>
-
-<details>
-<summary><code>xXssProtection</code></summary>
+## xXssProtection
 
 Default:
 
