@@ -3,6 +3,7 @@ description: A port of the NodeJS helmet package to Dart. Helmet helps you secur
 version: 1.1.0
 homepage: https://jxstxn.de
 repository: https://github.com/jxstxn1/shelf_helmet
+issue_tracker: https://github.com/jxstxn1/shelf_helmet/issues
 
 environment:
   sdk: '>=2.18.0 <3.0.0'
