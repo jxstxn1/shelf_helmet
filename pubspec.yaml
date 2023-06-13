@@ -1,6 +1,6 @@
 name: shelf_helmet
 description: A port of the NodeJS helmet package to Dart. Helmet helps you secure your Dart Shelf/Frog apps by setting various HTTP headers.
-version: 2.1.0
+version: 2.1.1
 homepage: https://jxstxn.de
 repository: https://github.com/jxstxn1/shelf_helmet
 issue_tracker: https://github.com/jxstxn1/shelf_helmet/issues
@@ -9,11 +9,8 @@ topics:
   - shelf
   - security
   - helmet
-  - dart
-  - dart_frog
-  - dartlang
+  - dart-frog
   - middleware
-  - shelf_helmet
 
 environment:
   sdk: '>=3.0.0 <4.0.0'
