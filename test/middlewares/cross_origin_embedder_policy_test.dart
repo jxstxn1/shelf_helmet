@@ -12,58 +12,53 @@ void main() {
       'credentialless',
     );
   });
-  test("Should add the 'Cross-Origin-Embedder-Policy:require-corp' Header",
-      () async {
-    final handler =
-        const Pipeline().addMiddleware(crossOriginEmbedderPolicy()).addHandler(
-              (req) => syncHandler(
-                req,
-                headers: {'content-type': 'application/json'},
-              ),
-            );
+  test(
+    "Should add the 'Cross-Origin-Embedder-Policy:require-corp' Header",
+    () async => testCrossOriginEmbedderPolicy(
+      CrossOriginEmbedderPolicyOptions.requireCorp,
+    ),
+  );
+  test(
+    "Should add the 'Cross-Origin-Embedder-Policy:credetialless' Header",
+    () async => testCrossOriginEmbedderPolicy(
+      CrossOriginEmbedderPolicyOptions.credentialLess,
+    ),
+  );
 
-    final response = await makeRequest(
-      handler,
-      uri: clientUri,
-      method: 'GET',
-    );
+  test(
+    "Should add the 'Cross-Origin-Embedder-Policy:unsafe-none' Header",
+    () async => testCrossOriginEmbedderPolicy(
+      CrossOriginEmbedderPolicyOptions.unsafeNone,
+    ),
+  );
+}
 
-    expect(response.statusCode, 200);
-    expect(
-      response.headers,
-      containsPair(
-        'cross-origin-embedder-policy',
-        'require-corp',
-      ),
-    );
-    expect(response.headers, containsPair('content-type', 'application/json'));
-  });
-  test("Should add the 'Cross-Origin-Embedder-Policy:credetialless' Header",
-      () async {
-    final handler = const Pipeline()
-        .addMiddleware(
-          crossOriginEmbedderPolicy(
-            policy: CrossOriginEmbedderPolicyOptions.credentialLess,
-          ),
-        )
-        .addHandler(
-          (req) => syncHandler(
-            req,
-            headers: {'content-type': 'application/json'},
-          ),
-        );
+Future<void> testCrossOriginEmbedderPolicy(
+  CrossOriginEmbedderPolicyOptions policy,
+) async {
+  final handler = const Pipeline()
+      .addMiddleware(
+        crossOriginEmbedderPolicy(
+          policy: policy,
+        ),
+      )
+      .addHandler(
+        (req) => syncHandler(
+          req,
+          headers: {'content-type': 'application/json'},
+        ),
+      );
 
-    final response = await makeRequest(
-      handler,
-      uri: clientUri,
-      method: 'GET',
-    );
+  final response = await makeRequest(
+    handler,
+    uri: clientUri,
+    method: 'GET',
+  );
 
-    expect(response.statusCode, 200);
-    expect(
-      response.headers,
-      containsPair('cross-origin-embedder-policy', 'credentialless'),
-    );
-    expect(response.headers, containsPair('content-type', 'application/json'));
-  });
+  expect(response.statusCode, 200);
+  expect(
+    response.headers,
+    containsPair('cross-origin-embedder-policy', policy.option),
+  );
+  expect(response.headers, containsPair('content-type', 'application/json'));
 }

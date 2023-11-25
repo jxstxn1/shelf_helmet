@@ -2,7 +2,8 @@ import 'package:shelf/shelf.dart';
 
 enum CrossOriginEmbedderPolicyOptions {
   requireCorp('require-corp'),
-  credentialLess('credentialless');
+  credentialLess('credentialless'),
+  unsafeNone('unsafe-none');
 
   final String option;
   const CrossOriginEmbedderPolicyOptions(this.option);
