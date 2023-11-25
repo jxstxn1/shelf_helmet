@@ -1,6 +1,11 @@
+## 2.2.0
+
+- Add `CrossOriginEmbedderPolicy unsafe-none`.
+- Improve `As dart_frog middleware` section in README.
+
 ## 2.1.1
 
-- Replace `_` with `-` in pubpsec 
+- Replace `_` with `-` in pubpsec
 
 ## 2.1.0
 
