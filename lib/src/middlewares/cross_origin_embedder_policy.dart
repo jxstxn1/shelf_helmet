@@ -32,7 +32,7 @@ Middleware crossOriginEmbedderPolicy({
       return response.change(
         headers: {
           'cross-origin-embedder-policy': policy.option,
-          ...response.headersAll
+          ...response.headersAll,
         },
       );
     };

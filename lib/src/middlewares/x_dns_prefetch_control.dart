@@ -23,7 +23,7 @@ Middleware xDnsPrefetchControl({bool allow = false}) {
       return response.change(
         headers: {
           'x-dns-prefetch-control': allow ? 'on' : 'off',
-          ...response.headersAll
+          ...response.headersAll,
         },
       );
     };

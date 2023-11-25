@@ -36,7 +36,7 @@ Middleware xFrameOptions({
       return response.change(
         headers: {
           'x-frame-options': xFrameOption.option,
-          ...response.headersAll
+          ...response.headersAll,
         },
       );
     };

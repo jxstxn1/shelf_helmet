@@ -39,7 +39,7 @@ Middleware crossOriginResourcePolicy({
       return response.change(
         headers: {
           'cross-origin-resource-policy': policy.option,
-          ...response.headersAll
+          ...response.headersAll,
         },
       );
     };

@@ -250,7 +250,7 @@ void main() {
                       .dangerouslyDisableDefaultSrc(
                     useDefaults: false,
                     directives: {
-                      'default-src': ["'hello;,'"]
+                      'default-src': ["'hello;,'"],
                     },
                   ),
                 ),

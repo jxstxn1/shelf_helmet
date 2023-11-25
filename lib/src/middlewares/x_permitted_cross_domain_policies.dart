@@ -51,7 +51,7 @@ Middleware xPermittedCrossDomainPolicies({
       return response.change(
         headers: {
           'x-permitted-cross-domain-policies': permittedPolicy.policie,
-          ...response.headersAll
+          ...response.headersAll,
         },
       );
     };

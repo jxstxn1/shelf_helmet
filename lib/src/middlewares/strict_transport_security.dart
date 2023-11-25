@@ -62,7 +62,7 @@ Middleware strictTransportSecurity({
       return response.change(
         headers: {
           'strict-transport-security': args.join('; '),
-          ...response.headersAll
+          ...response.headersAll,
         },
       );
     };

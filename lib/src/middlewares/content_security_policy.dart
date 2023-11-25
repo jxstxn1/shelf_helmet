@@ -168,7 +168,7 @@ Middleware contentSecurityPolicy({
           options.reportOnly
                   ? 'Content-Security-Policy-Report-Only'
                   : 'Content-Security-Policy':
-              getHeaderValue(_normalizeDirectives(options))
+              getHeaderValue(_normalizeDirectives(options)),
         },
       );
     };
@@ -197,7 +197,7 @@ Directive _normalizeDirectives(ContentSecurityPolicyOptions options) {
   final Directive normalizedDirectives = {};
   final List<String> directiveNamesSeen = [];
   final List<String> directivesExplicitlyDisabled = [
-    if (options.dangerouslyDisableDefaultSrc) 'default-src'
+    if (options.dangerouslyDisableDefaultSrc) 'default-src',
   ];
 
   for (final rawDirective in rawDirectives.entries) {

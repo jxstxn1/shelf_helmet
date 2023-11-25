@@ -39,7 +39,7 @@ Middleware crossOriginOpenerPolicy({
       return response.change(
         headers: {
           'cross-origin-opener-policy': policy.option,
-          ...response.headersAll
+          ...response.headersAll,
         },
       );
     };
