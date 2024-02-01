@@ -1,3 +1,7 @@
+## 2.2.1
+
+- Add `As pharaoh middleware` section in README.
+
 ## 2.2.0
 
 - Add `CrossOriginEmbedderPolicy unsafe-none`.

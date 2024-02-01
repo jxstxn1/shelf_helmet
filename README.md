@@ -25,11 +25,19 @@ var handler = const Pipeline()
 ```dart
 import 'package:shelf_helmet/shelf_helmet.dart';
 
-Handler helmet(Handler handler) {
+Handler middleware(Handler handler) {
   return handler.use(
     fromShelfMiddleware(helmet()),
   );
 }
+```
+
+### As pharaoh middleware
+
+```dart
+import 'package:shelf_helmet/shelf_helmet.dart';
+
+app.use(useShelfMiddleware(helmet()));
 ```
 
 By default, Helmet sets the following headers:
