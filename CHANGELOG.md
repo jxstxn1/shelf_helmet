@@ -1,3 +1,7 @@
+## 2.3.0
+
+- Set default of `strict-transport-security` to `max-age=31536000` aka 365 days. Following the recommendation of this [Issue](https://github.com/helmetjs/helmet/issues/457)
+
 ## 2.2.1
 
 - Add `As pharaoh middleware` section in README.

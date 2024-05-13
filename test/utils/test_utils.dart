@@ -55,7 +55,7 @@ void defaultHelmetOptionsExpecter(Response response) {
   expect(response.headers['referrer-policy'], 'no-referrer');
   expect(
     response.headers['strict-transport-security'],
-    'max-age=15552000; includeSubDomains',
+    'max-age=31536000; includeSubDomains',
   );
   expect(response.headers['x-content-type-options'], 'nosniff');
   expect(response.headers['x-dns-prefetch-control'], 'off');

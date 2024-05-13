@@ -6,7 +6,7 @@ import '../utils/test_utils.dart';
 
 void main() {
   test(
-      "Should add the 'Strict-Transport-Security:max-age=15552000; includeSubDomains' Header",
+      "Should add the 'Strict-Transport-Security:max-age=31536000; includeSubDomains' Header",
       () async {
     final handler =
         const Pipeline().addMiddleware(strictTransportSecurity()).addHandler(
@@ -27,21 +27,21 @@ void main() {
       response.headers,
       containsPair(
         'strict-transport-security',
-        'max-age=15552000; includeSubDomains',
+        'max-age=31536000; includeSubDomains',
       ),
     );
     expect(response.headers, containsPair('content-type', 'application/json'));
   });
 
   test(
-      "Should add the 'Strict-Transport-Security:max-age=31536000; includeSubDomains' Header",
+      "Should add the 'Strict-Transport-Security:max-age=15552000; includeSubDomains' Header",
       () async {
     final handler = const Pipeline()
         .addMiddleware(
           strictTransportSecurity(
             options: const StrictTransportSecurityOptions(
               maxAge: Duration(
-                days: 365,
+                days: 180,
               ),
             ),
           ),
@@ -64,13 +64,13 @@ void main() {
       response.headers,
       containsPair(
         'strict-transport-security',
-        'max-age=31536000; includeSubDomains',
+        'max-age=15552000; includeSubDomains',
       ),
     );
     expect(response.headers, containsPair('content-type', 'application/json'));
   });
 
-  test("Should add the 'Strict-Transport-Security:max-age=15552000' Header",
+  test("Should add the 'Strict-Transport-Security:max-age=31536000' Header",
       () async {
     final handler = const Pipeline()
         .addMiddleware(
@@ -96,12 +96,12 @@ void main() {
     expect(response.statusCode, 200);
     expect(
       response.headers,
-      containsPair('strict-transport-security', 'max-age=15552000'),
+      containsPair('strict-transport-security', 'max-age=31536000'),
     );
     expect(response.headers, containsPair('content-type', 'application/json'));
   });
   test(
-      "Should add the 'Strict-Transport-Security:max-age=15552000; includeSubDomains; preload' Header",
+      "Should add the 'Strict-Transport-Security:max-age=31536000; includeSubDomains; preload' Header",
       () async {
     final handler = const Pipeline()
         .addMiddleware(
@@ -127,7 +127,7 @@ void main() {
       response.headers,
       containsPair(
         'strict-transport-security',
-        'max-age=15552000; includeSubDomains; preload',
+        'max-age=31536000; includeSubDomains; preload',
       ),
     );
     expect(response.headers, containsPair('content-type', 'application/json'));

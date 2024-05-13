@@ -7,7 +7,7 @@ import 'package:shelf/shelf.dart';
 /// it will just tell HTTPS users to stick around.
 /// You can enforce HTTPS with the [shelf-enforces-ssl](https://pub.dev/packages/shelf_enforces_ssl) package.
 ///
-/// This will set the Strict Transport Security header, telling browsers to visit by HTTPS for the next 180 days:
+/// This will set the Strict Transport Security header, telling browsers to visit by HTTPS for the next 365 days:
 ///
 /// ```dart
 /// import 'package:shelf_helmet/shelf_helmet.dart';
@@ -75,7 +75,7 @@ class StrictTransportSecurityOptions {
   final bool preload;
 
   const StrictTransportSecurityOptions({
-    this.maxAge = const Duration(days: 180),
+    this.maxAge = const Duration(days: 365),
     this.includeSubDomains = true,
     this.preload = false,
   });
